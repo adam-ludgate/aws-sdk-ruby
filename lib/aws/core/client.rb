@@ -61,8 +61,8 @@ module AWS
 
         @credential_provider = @config.credential_provider
         @http_handler = @config.http_handler
-        @endpoint = config.send(:"#{service_ruby_name}_endpoint")
-        @port = config.send(:"#{service_ruby_name}_port")
+        @endpoint = ENV['CUSTOM_S3_ENDPOINT'] || config.send(:"#{service_ruby_name}_endpoint")
+        @port = ENV['CUSTOM_S3_PORT'] || config.send(:"#{service_ruby_name}_port")
 
         # deprecated attributes
         @http_read_timeout = @config.http_read_timeout

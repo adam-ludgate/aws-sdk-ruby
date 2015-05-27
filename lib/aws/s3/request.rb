@@ -54,7 +54,7 @@ module AWS
         uri = ''
         uri << path
         uri << "?#{querystring}" if querystring
-        uri
+        uri.gsub('//', '/')
       end
 
     end

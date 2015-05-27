@@ -97,7 +97,7 @@ module AWS
 
           configure_request do |req, options|
 
-            require_bucket_name!(options[:bucket_name])
+            require_bucket_name!(options[:bucket_name]) unless ENV['CUSTOM_S3_ENDPOINT']
 
             req.http_method = verb
             req.bucket = options[:bucket_name]
