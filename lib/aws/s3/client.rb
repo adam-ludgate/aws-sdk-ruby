@@ -341,6 +341,8 @@ module AWS
         #
         def dns_compatible_bucket_name?(bucket_name)
           return false if
+            ENV['DNS_COMPATIBLE_BUCKET'] == 'false' or
+
             !valid_bucket_name?(bucket_name) or
 
             # Bucket names should be between 3 and 63 characters long
